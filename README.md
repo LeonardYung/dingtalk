@@ -9,7 +9,7 @@
 </p>
 
 ## Requirements
-- PHP >= 7.0
+- PHP >= 5.6.4
 - Composer
 
 ## Installation
