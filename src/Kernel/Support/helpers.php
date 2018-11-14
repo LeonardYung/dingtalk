@@ -16,7 +16,7 @@ namespace EasyDingTalk\Kernel\Support;
  *
  * @return string
  */
-function str_random($length = 16): string
+function str_random($length = 16)
 {
     $pool = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
@@ -26,7 +26,7 @@ function str_random($length = 16): string
 /**
  * @return string
  */
-function current_url(): string
+function current_url()
 {
     $protocol = 'http://';
 
