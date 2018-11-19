@@ -89,7 +89,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function useList( $departmentId,  $size = 100,  $offset = 0,  $params = [])
+    public function userList( $departmentId,  $size = 100,  $offset = 0,  $params = [])
     {
         return $this->httpGet('user/list', [
             'department_id' => $departmentId,
