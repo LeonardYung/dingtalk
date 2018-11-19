@@ -25,7 +25,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function get(string $userId)
+    public function get( $userId)
     {
         return $this->httpGet('user/get', ['userid' => $userId]);
     }
@@ -37,7 +37,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function create(array $params)
+    public function create( $params)
     {
         return $this->httpPostJson('user/create', $params);
     }
@@ -49,7 +49,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function update(array $params)
+    public function update( $params)
     {
         return $this->httpPostJson('user/update', $params);
     }
@@ -74,7 +74,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function simpleList(int $departmentId, array $params = [])
+    public function simpleList( $departmentId,  $params = [])
     {
         return $this->httpGet('user/simplelist', [
             'department_id' => $departmentId,
@@ -89,7 +89,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function list(int $departmentId, int $size = 100, int $offset = 0, array $params = [])
+    public function useList( $departmentId,  $size = 100,  $offset = 0,  $params = [])
     {
         return $this->httpGet('user/list', [
             'department_id' => $departmentId,
@@ -113,7 +113,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function toUserId(string $unionId)
+    public function toUserId( $unionId)
     {
         return $this->httpGet('user/getUseridByUnionid', [
             'unionid' => $unionId,
@@ -125,7 +125,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function count(array $params)
+    public function count( $params)
     {
         return $this->httpGet('user/get_org_user_count', $params);
     }
@@ -135,7 +135,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function getUserInfo(string $code)
+    public function getUserInfo( $code)
     {
         return $this->httpGet('user/getuserinfo', ['code' => $code]);
     }

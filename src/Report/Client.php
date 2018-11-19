@@ -32,7 +32,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function list(int $startTime, int $endTime, $cursor = 0, $size = 10, $templateName = null, $userId = null)
+    public function reportList( $startTime, $endTime, $cursor = 0, $size = 10, $templateName = null, $userId = null)
     {
         return $this->httpGetMethod('dingtalk.corp.report.list', [
             'start_time' => $startTime,

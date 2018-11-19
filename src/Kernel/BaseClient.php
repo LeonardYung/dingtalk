@@ -37,7 +37,7 @@ class BaseClient
     /**
      * @param \EasyDingTalk\Application
      */
-    public function __construct(Application $app)
+    public function __construct( $app)
     {
         $this->app = $app;
     }
@@ -50,7 +50,7 @@ class BaseClient
      *
      * @return array|\GuzzleHttp\Psr7\Response
      */
-    public function httpGet(string $uri, array $query = [])
+    public function httpGet( $uri, $query = [])
     {
         return $this->requestDingTalk('GET', $uri, [RequestOptions::QUERY => $query]);
     }
@@ -64,7 +64,7 @@ class BaseClient
      *
      * @return array|\GuzzleHttp\Psr7\Response
      */
-    public function httpPostJson(string $uri, array $json = [], array $query = [])
+    public function httpPostJson( $uri, $json = [], $query = [])
     {
         return $this->requestDingTalk('POST', $uri, [
             RequestOptions::QUERY => $query,
@@ -81,7 +81,7 @@ class BaseClient
      *
      * @return array|\GuzzleHttp\Psr7\Response
      */
-    public function httpUpload(string $uri, array $files, array $query = [])
+    public function httpUpload( $uri, $files, $query = [])
     {
         $multipart = [];
 
@@ -104,7 +104,7 @@ class BaseClient
      *
      * @return array|\GuzzleHttp\Psr7\Response
      */
-    public function httpGetMethod(string $method, array $query = [])
+    public function httpGetMethod( $method, $query = [])
     {
         $query = compact('method') + $query;
 
@@ -118,13 +118,13 @@ class BaseClient
      *
      * @return array|\GuzzleHttp\Psr7\Response
      */
-    protected function requestDingTalk($method, $uri, array $options = [])
+    protected function requestDingTalk($method, $uri, $options = [])
     {
         if (! $handler = $this->dingtalkHandlerStack) {
             $handler = HandlerStack::create();
 
             $handler->push(function (callable $handler) {
-                return function (RequestInterface $request, array $options) use ($handler) {
+                return function (RequestInterface $request, $options) use ($handler) {
                     return $handler($this->concat($request, ['access_token' => $this->app['credential']->token()]), $options);
                 };
             });
@@ -141,12 +141,12 @@ class BaseClient
      *
      * @return array|\GuzzleHttp\Psr7\Response
      */
-    protected function requestTaobao($method, array $options = [])
+    protected function requestTaobao($method, $options = [])
     {
         if (! $handler = $this->taobaoHandlerStack) {
             $handler = HandlerStack::create();
             $handler->push(function (callable $handler) {
-                return function (RequestInterface $request, array $options) use ($handler) {
+                return function (RequestInterface $request, $options) use ($handler) {
                     $query = [
                         'session' => $this->app['credential']->token(),
                         'timestamp' => date('Y-m-d H:i:s'),
@@ -171,7 +171,7 @@ class BaseClient
      *
      * @return \Psr\Http\Message\RequestInterface
      */
-    protected function concat(RequestInterface $request, array $query = []): RequestInterface
+    protected function concat(RequestInterface $request, $query = [])
     {
         parse_str($request->getUri()->getQuery(), $parsed);
         $query = http_build_query(array_merge($query, $parsed));

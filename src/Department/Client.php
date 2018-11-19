@@ -27,7 +27,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function list(int $id = 0)
+    public function departmentList( $id = 0)
     {
         if ($id == 0) {
             return $this->httpGet('department/list');
@@ -43,7 +43,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function get(int $id)
+    public function get( $id)
     {
         return $this->httpGet('department/get', compact('id'));
     }
@@ -55,7 +55,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function create(array $data)
+    public function create( $data)
     {
         return $this->httpPostJson('department/create', $data);
     }
@@ -67,7 +67,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function update(array $data)
+    public function update( $data)
     {
         return $this->httpPostJson('department/update', $data);
     }
@@ -79,7 +79,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function delete(int $id)
+    public function delete( $id)
     {
         return $this->httpGet('department/delete', compact('id'));
     }
@@ -91,7 +91,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function parent(int $id)
+    public function parent( $id)
     {
         return $this->httpGet('department/list_parent_depts_by_dept', compact('id'));
     }
@@ -103,7 +103,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function userParent(string $userId)
+    public function userParent( $userId)
     {
         return $this->httpGet('department/list_parent_depts', compact('userId'));
     }

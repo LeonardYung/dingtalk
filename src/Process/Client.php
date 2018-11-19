@@ -32,7 +32,7 @@ class Client extends BaseClient
      *
      * @return array|\GuzzleHttp\Psr7\Response
      */
-    public function list(string $processCode, int $startTime, int $endTime = 0, array $useridList = [], $cursor = 0, $size = 10)
+    public function processInstanceList( $processCode, $startTime, $endTime = 0, $useridList = [], $cursor = 0, $size = 10)
     {
         // php 不方便生成毫秒数 如果传入秒 则自动补 3个0 成为毫秒
         $startTime = strlen($startTime) === 10 ? $startTime.'000' : $startTime;

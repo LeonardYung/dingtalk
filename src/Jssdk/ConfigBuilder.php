@@ -61,7 +61,7 @@ class ConfigBuilder
      *
      * @param \EasyDingTalk\Jssdk\Client $client
      */
-    public function __construct(Client $client)
+    public function __construct( $client)
     {
         $this->client = $client;
     }
@@ -73,7 +73,7 @@ class ConfigBuilder
      *
      * @return $this
      */
-    public function setUrl(string $url)
+    public function setUrl( $url)
     {
         $this->url = $url;
 
@@ -85,7 +85,7 @@ class ConfigBuilder
      *
      * @return string
      */
-    public function getUrl(): string
+    public function getUrl()
     {
         if (is_null($this->url)) {
             $this->url = current_url();
@@ -99,7 +99,7 @@ class ConfigBuilder
      *
      * @return $this
      */
-    public function useApi(array $apiList)
+    public function useApi( $apiList)
     {
         $this->apiList = $apiList;
 
@@ -111,7 +111,7 @@ class ConfigBuilder
      *
      * @return $this
      */
-    public function ofAgent(int $agentId)
+    public function ofAgent( $agentId)
     {
         $this->agentId = $agentId;
 
@@ -123,7 +123,7 @@ class ConfigBuilder
      *
      * @return $this
      */
-    public function setType(int $type)
+    public function setType( $type)
     {
         $this->type = $type;
 
@@ -135,7 +135,7 @@ class ConfigBuilder
      *
      * @return $this
      */
-    public function setTimestamp(int $timestamp)
+    public function setTimestamp( $timestamp)
     {
         $this->timestamp = $timestamp;
 
@@ -147,7 +147,7 @@ class ConfigBuilder
      *
      * @return $this
      */
-    public function setNonce(string $nonce)
+    public function setNonce( $nonce)
     {
         $this->nonce = $nonce;
 
@@ -157,7 +157,7 @@ class ConfigBuilder
     /**
      * @return array
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'agentId' => $this->agentId,
@@ -173,7 +173,7 @@ class ConfigBuilder
     /**
      * @return string
      */
-    public function toJson(): string
+    public function toJson()
     {
         return json_encode($this->toArray());
     }

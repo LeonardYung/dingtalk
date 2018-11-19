@@ -33,7 +33,7 @@ abstract class Message
      *
      * @param array $attributes
      */
-    public function __construct(array $attributes)
+    public function __construct( $attributes)
     {
         $this->attributes = $attributes;
     }
@@ -43,7 +43,7 @@ abstract class Message
      *
      * @return \EasyDingTalk\Kernel\Messages\Message
      */
-    public static function parse($message): self
+    public static function parse($message)
     {
         if (is_int($message) || is_string($message)) {
             $message = new Text($message);
@@ -65,7 +65,7 @@ abstract class Message
     /**
      * @return array
      */
-    public function transform(): array
+    public function transform()
     {
         return [
             'msgtype' => $this->type,

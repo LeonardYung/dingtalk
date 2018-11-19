@@ -30,7 +30,7 @@ trait MakesHttpRequests
      *
      * @return array|\GuzzleHttp\Psr7\Response
      */
-    public function request(string $method, string $uri, array $options = [])
+    public function request( $method, $uri, array $options = [])
     {
         $response = $this->app['http_client']->request($method, $uri, $options);
 
@@ -54,7 +54,7 @@ trait MakesHttpRequests
      *
      * @throws \EasyDingTalk\Kernel\Exceptions\ClientError
      */
-    protected function transformResponse($response): array
+    protected function transformResponse($response)
     {
         $result = json_decode($response->getBody()->getContents(), true);
 

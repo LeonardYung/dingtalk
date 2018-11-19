@@ -31,7 +31,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function status(string $messageId)
+    public function status( $messageId)
     {
         return $this->httpPostJson('message/list_message_status', compact('messageId'));
     }
@@ -41,9 +41,9 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function send(array $data = null)
+    public function send( $data = null)
     {
-        return $this->httpPostJson('message/send', $data ?? $this->data);
+        return $this->httpPostJson('message/send', isset($data) ?$data: $this->data);
     }
 
     /**
@@ -75,7 +75,7 @@ class Client extends BaseClient
      *
      * @return $this
      */
-    public function ofAgent(int $agent)
+    public function ofAgent( $agent)
     {
         $this->data['agentid'] = $agent;
 

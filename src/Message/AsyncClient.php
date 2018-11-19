@@ -32,7 +32,7 @@ class AsyncClient extends BaseClient
      *
      * @return array
      */
-    public function progress(int $agentId, int $taskId)
+    public function progress( $agentId, $taskId)
     {
         return $this->httpGetMethod('dingtalk.corp.message.corpconversation.getsendprogress', [
             'agent_id' => $agentId,
@@ -46,7 +46,7 @@ class AsyncClient extends BaseClient
      *
      * @return array
      */
-    public function result(int $agentId, int $taskId)
+    public function result( $agentId, $taskId)
     {
         return $this->httpGetMethod('dingtalk.corp.message.corpconversation.getsendresult', [
             'agent_id' => $agentId,
@@ -59,9 +59,9 @@ class AsyncClient extends BaseClient
      *
      * @return array
      */
-    public function send(array $data = null)
+    public function send( $data = null)
     {
-        return $this->httpGetMethod('dingtalk.corp.message.corpconversation.asyncsend', $data ?? $this->data);
+        return $this->httpGetMethod('dingtalk.corp.message.corpconversation.asyncsend', isset($data) ?$data: $this->data);
     }
 
     /**
@@ -108,7 +108,7 @@ class AsyncClient extends BaseClient
      *
      * @return $this
      */
-    public function ofAgent(int $agent)
+    public function ofAgent( $agent)
     {
         $this->data['agent_id'] = $agent;
 

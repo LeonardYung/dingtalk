@@ -31,7 +31,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function create(array $data)
+    public function create( $data)
     {
         return $this->httpPostJson('chat/create', $data);
     }
@@ -41,7 +41,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function update(array $data)
+    public function update( $data)
     {
         return $this->httpPostJson('chat/update', $data);
     }
@@ -51,7 +51,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function get(string $chatId)
+    public function get( $chatId)
     {
         return $this->httpGet('chat/get', [
             'chatid' => $chatId,
@@ -63,9 +63,9 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function send(array $data = null)
+    public function send( $data = null)
     {
-        return $this->httpPostJson('chat/send', $data ?? $this->data);
+        return $this->httpPostJson('chat/send', isset($data) ?$data: $this->data);
     }
 
     /**
@@ -73,7 +73,7 @@ class Client extends BaseClient
      *
      * @return $this
      */
-    public function toChat(string $chatId)
+    public function toChat( $chatId)
     {
         $this->data['chatid'] = $chatId;
 

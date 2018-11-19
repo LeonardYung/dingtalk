@@ -20,7 +20,7 @@ class Text extends Message
 {
     protected $type = 'text';
 
-    public function __construct(string $content)
+    public function __construct( $content)
     {
         parent::__construct(compact('content'));
     }

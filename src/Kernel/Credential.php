@@ -42,7 +42,7 @@ class Credential
      *
      * @return string
      */
-    public function token(): string
+    public function token()
     {
         if ($value = $this->app['cache']->get($this->cacheKey())) {
             return $value;
@@ -63,7 +63,7 @@ class Credential
      *
      * @return $this
      */
-    public function setToken(string $token, $ttl = null)
+    public function setToken( $token, $ttl = null)
     {
         $this->app['cache']->set($this->cacheKey(), $token, $ttl);
 
@@ -73,7 +73,7 @@ class Credential
     /**
      * @return array
      */
-    protected function credentials(): array
+    protected function credentials()
     {
         return [
             'corpid' => $this->app['config']->get('corp_id'),
@@ -84,7 +84,7 @@ class Credential
     /**
      * @return string
      */
-    protected function cacheKey(): string
+    protected function cacheKey()
     {
         return 'easydingtalk.access_token.'.md5(json_encode($this->credentials()));
     }

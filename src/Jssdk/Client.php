@@ -23,7 +23,7 @@ class Client extends BaseClient
     /**
      * @return \EasyDingTalk\Jssdk\ConfigBuilder
      */
-    public function configBuilder(): ConfigBuilder
+    public function configBuilder()
     {
         return new ConfigBuilder($this);
     }
@@ -31,7 +31,7 @@ class Client extends BaseClient
     /**
      * @return string
      */
-    public function ticket(): string
+    public function ticket()
     {
         if ($value = $this->app['cache']->get($this->cacheKey())) {
             return $value;
@@ -50,7 +50,7 @@ class Client extends BaseClient
      *
      * @return string
      */
-    public function signature(string $url, string $nonce, int $timestamp): string
+    public function signature( $url, $nonce, $timestamp)
     {
         return sha1("jsapi_ticket={$this->ticket()}&noncestr={$nonce}&timestamp={$timestamp}&url={$url}");
     }
@@ -58,7 +58,7 @@ class Client extends BaseClient
     /**
      * @return string
      */
-    public function corpId(): string
+    public function corpId()
     {
         return $this->app['config']->get('corp_id');
     }
@@ -66,7 +66,7 @@ class Client extends BaseClient
     /**
      * @return string
      */
-    protected function cacheKey(): string
+    protected function cacheKey()
     {
         return 'easydingtalk.jsticket.'.$this->corpId();
     }

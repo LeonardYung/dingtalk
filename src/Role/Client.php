@@ -27,7 +27,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function simpleList(int $roleId, int $size = null, int $offset = null)
+    public function simpleList( $roleId,  $size = null, $offset = null)
     {
         return $this->httpGetMethod('dingtalk.corp.role.simplelist', [
             'role_id' => $roleId,
@@ -42,7 +42,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function list(int $size = null, int $offset = null)
+    public function roleList( $size = null, $offset = null)
     {
         return $this->httpGetMethod('dingtalk.corp.role.list', compact('size', 'offset'));
     }
@@ -53,7 +53,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function attach(array $roleList, array $userList)
+    public function attach( $roleList, $userList)
     {
         return $this->httpGetMethod('dingtalk.corp.role.addrolesforemps', [
             'roleid_list' => $roleList,
@@ -67,7 +67,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function detach(array $roleList, array $userList)
+    public function detach( $roleList, $userList)
     {
         return $this->httpGetMethod('dingtalk.corp.role.removerolesforemps', [
             'roleid_list' => $roleList,
@@ -80,7 +80,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function delete(int $roleId)
+    public function delete( $roleId)
     {
         return $this->httpGetMethod('dingtalk.corp.role.deleterole', [
             'role_id' => $roleId,
@@ -92,7 +92,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function group(int $groupId)
+    public function group( $groupId)
     {
         return $this->httpGetMethod('dingtalk.corp.role.getrolegroup', [
             'group_id' => $groupId,

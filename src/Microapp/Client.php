@@ -27,7 +27,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function create(array $params)
+    public function create( $params)
     {
         return $this->httpPostJson('microapp/create', $params);
     }
@@ -39,7 +39,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function update(array $params)
+    public function update( $params)
     {
         return $this->httpPostJson('microapp/update', $params);
     }
@@ -49,7 +49,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function delete(int $agentId)
+    public function delete( $agentId)
     {
         $params = [
             'agentId' => $agentId,
@@ -61,7 +61,7 @@ class Client extends BaseClient
     /**
      * @return mixed
      */
-    public function list()
+    public function microappList()
     {
         return $this->httpPostJson('microapp/list');
     }

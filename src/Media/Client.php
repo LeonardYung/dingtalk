@@ -25,7 +25,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function uploadImage(string $path)
+    public function uploadImage( $path)
     {
         return $this->upload('image', $path);
     }
@@ -35,7 +35,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function uploadVoice(string $path)
+    public function uploadVoice( $path)
     {
         return $this->upload('voice', $path);
     }
@@ -45,7 +45,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function uploadFile(string $path)
+    public function uploadFile( $path)
     {
         return $this->upload('file', $path);
     }
@@ -56,7 +56,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function upload(string $type, string $path)
+    public function upload( $type,  $path)
     {
         return $this->httpUpload('media/upload', ['media' => $path], compact('type'));
     }
@@ -68,7 +68,7 @@ class Client extends BaseClient
      *
      * @throws \EasyDingTalk\Kernel\Exceptions\ClientError
      */
-    public function download(string $mediaId)
+    public function download( $mediaId)
     {
         $response = $this->dontTransform()->httpGet('media/downloadFile', ['media_id' => $mediaId]);
 

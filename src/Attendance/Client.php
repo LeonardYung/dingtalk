@@ -27,7 +27,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function record(array $userIds, string $from, string $to)
+    public function record( $userIds, $from, $to)
     {
         return $this->httpPostJson('attendance/listRecord', [
             'userIds' => $userIds,
@@ -43,7 +43,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function list(string $userId, string $from, string $to)
+    public function attendanceList( $userId, $from, $to)
     {
         return $this->httpPostJson('attendance/list', [
             'userId' => $userId,

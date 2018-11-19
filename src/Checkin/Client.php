@@ -27,7 +27,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function record($departmentId, int $start, array $params = [])
+    public function record($departmentId, $start, $params = [])
     {
         return $this->httpGet('checkin/record', [
             'department_id' => $departmentId,
