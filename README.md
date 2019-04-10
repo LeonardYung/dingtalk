@@ -19,7 +19,7 @@ composer require LeonardYung/dingtalk
 
 ## Documentation
 
-[Wiki](https://github.com/mingyoung/dingtalk/wiki)
+tbd
 
 ## License
 
