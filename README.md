@@ -14,7 +14,7 @@
 
 ## Installation
 ```bash
-composer require mingyoung/dingtalk
+composer require LeonardYung/dingtalk
 ```
 
 ## Documentation
